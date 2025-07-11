@@ -1,419 +1,188 @@
-<!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Agung Saputra | HR Strategist & Project Planner</title>
-    <meta name="description" content="Portofolio Agung Saputra, seorang HR Strategist & Project Planner berpengalaman dalam mengelola 4.000+ karyawan dan memimpin proyek multi-miliar. Ahli dalam Human Capital Empowerment, Payroll, dan Hubungan Industrial.">
-    <meta name="keywords" content="Agung Saputra, HR Strategist, Project Planner, Human Capital, HR Operation, Payroll, Rekrutmen, Hubungan Industrial, Sampurna Group, Bank BSI, PIK 2">
-    <meta name="author" content="Agung Saputra">
-    <link rel="canonical" href="https://agungsaputra.example.com"> <!-- Ganti dengan domain Anda nanti -->
+/*
+ * File: style.css
+ * Deskripsi: Kode CSS kustom untuk menata bot Botpress.
+ * Anda dapat menempelkan kode ini ke bagian "Custom CSS" di pengaturan Botpress Anda.
+ */
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://agungsaputra.example.com"> <!-- Ganti dengan domain Anda nanti -->
-    <meta property="og:title" content="Agung Saputra | HR Strategist & Project Planner">
-    <meta property="og:description" content="Berpengalaman mengelola 4.000+ karyawan & memimpin proyek multi-miliar dengan ketepatan waktu & efisiensi biaya.">
-    <meta property="og:image" content="/Image/agung-saputra-og.png"> 
+/* Gaya umum untuk wadah chatbot */
+.bp-widget-web {
+    font-family: 'Inter', sans-serif; /* Menggunakan font Inter, atau fallback ke sans-serif */
+    border-radius: 12px; /* Sudut membulat untuk wadah utama */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    overflow: hidden; /* Memastikan konten tidak meluber */
+}
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://agungsaputra.example.com"> <!-- Ganti dengan domain Anda nanti -->
-    <meta property="twitter:title" content="Agung Saputra | HR Strategist & Project Planner">
-    <meta property="twitter:description" content="Berpengalaman mengelola 4.000+ karyawan & memimpin proyek multi-miliar dengan ketepatan waktu & efisiensi biaya.">
-    <meta property="twitter:image" content="/Image/agung-saputra-twitter.png">
+/* Header chatbot */
+.bp-widget-header {
+    background-color: #4A90E2; /* Warna biru cerah untuk header */
+    color: #ffffff; /* Teks putih */
+    padding: 15px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.1em;
+}
 
-    <!-- Favicon -->
-    <link rel="icon" href="Image/favicon.jpg" type="image/png">
+/* Judul header */
+.bp-widget-header h3 {
+    margin: 0;
+    color: #ffffff;
+}
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+/* Tombol tutup/minimalkan di header */
+.bp-widget-header .bp-widget-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
 
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+.bp-widget-header .bp-widget-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+/* Area pesan */
+.bp-widget-chat-container {
+    background-color: #f0f2f5; /* Latar belakang abu-abu muda untuk area chat */
+    padding: 15px;
+    overflow-y: auto; /* Gulir vertikal jika konten terlalu panjang */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Jarak antar gelembung pesan */
+}
 
-    <!-- AOS (Animate On Scroll) Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+/* Gelembung pesan dari pengguna */
+.bp-widget-message.user {
+    align-self: flex-end; /* Pesan pengguna di sebelah kanan */
+    background-color: #DCF8C6; /* Warna hijau muda untuk pesan pengguna */
+    color: #333333;
+    border-radius: 18px 18px 0 18px; /* Sudut membulat, kecuali di kanan bawah */
+    padding: 10px 15px;
+    max-width: 75%; /* Lebar maksimum gelembung */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
 
-    <!-- Swiper.js for Carousels -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+/* Gelembung pesan dari bot */
+.bp-widget-message.bot {
+    align-self: flex-start; /* Pesan bot di sebelah kiri */
+    background-color: #FFFFFF; /* Warna putih untuk pesan bot */
+    color: #333333;
+    border-radius: 18px 18px 18px 0; /* Sudut membulat, kecuali di kiri bawah */
+    padding: 10px 15px;
+    max-width: 75%; /* Lebar maksimum gelembung */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
 
-    <style>
-        /* Custom Styles */
-        html, body {
-            overflow-x: hidden; /* Mencegah scroll horizontal di level tertinggi */
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            position: relative;
-        }
-        .hero-wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
-            z-index: 0;
-        }
-        .hero-wave svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 150px;
-        }
-        .hero-wave .shape-fill {
-            fill: #f8fafc; /* slate-50 */
-        }
-        .highlight {
-            color: #3b82f6; /* blue-500 */
-            font-weight: 600;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background-color: #e5e7eb; /* gray-200 */
-        }
-        /* Penyesuaian posisi garis timeline untuk mobile */
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 20px;
-                transform: translateX(0);
-            }
-            .timeline-item-left, .timeline-item-right {
-                justify-content: flex-start;
-                padding-left: 50px; /* Memberi ruang dari garis timeline */
-                padding-right: 0;
-            }
-            .timeline-item-left > div:first-child, .timeline-item-right > div:first-child {
-                display: none; /* Sembunyikan div kosong di mobile */
-            }
-            .timeline-content {
-                width: 100%;
-            }
-            .timeline-icon {
-                position: absolute;
-                left: 0;
-                transform: translateX(-50%);
-                margin-left: 20px; /* Sejajarkan dengan garis */
-            }
-        }
-    </style>
-    
-    <!-- Advanced SEO: JSON-LD Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "name": "Agung Saputra",
-      "url": "https://agungsaputra.example.com",
-      "image": "/Image/agung-saputra-profile.png",
-      "jobTitle": "HR Strategist & Project Planner",
-      "worksFor": [
-        { "@type": "Organization", "name": "Sampurna Group" },
-        { "@type": "Organization", "name": "Bank BSI Group" }
-      ],
-      "alumniOf": "Bank Mandiri Group",
-      "sameAs": [
-        "https://id.linkedin.com/in/agung-saputra-bb983b214",
-        "https://wa.me/6285220705081"
-      ],
-      "email": "mailto:agungsaputra.me@gmail.com",
-      "telephone": "+62-852-2070-5081",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Jakarta Barat",
-        "addressCountry": "ID"
-      },
-      "knowsAbout": ["Human Resources", "Project Management", "Payroll", "Compliance", "Industrial Relations", "SAP SuccessFactors", "Talenta"]
+/* Avatar bot */
+.bp-widget-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Bentuk lingkaran untuk avatar */
+    margin-right: 10px;
+    object-fit: cover; /* Memastikan gambar avatar pas */
+    border: 2px solid #4A90E2; /* Border biru untuk avatar */
+}
+
+/* Teks dalam gelembung pesan */
+.bp-widget-message-text {
+    line-height: 1.4;
+    word-wrap: break-word; /* Memastikan teks memecah baris jika terlalu panjang */
+}
+
+/* Area input pesan */
+.bp-widget-input-container {
+    display: flex;
+    padding: 15px;
+    background-color: #ffffff; /* Latar belakang putih untuk area input */
+    border-top: 1px solid #e0e0e0; /* Garis pemisah atas */
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Input teks pesan */
+.bp-widget-input {
+    flex-grow: 1; /* Mengisi ruang yang tersedia */
+    border: 1px solid #cccccc;
+    border-radius: 25px; /* Sudut membulat untuk input */
+    padding: 10px 15px;
+    font-size: 1em;
+    outline: none; /* Menghilangkan outline saat fokus */
+    transition: border-color 0.3s ease;
+}
+
+.bp-widget-input:focus {
+    border-color: #4A90E2; /* Warna border saat fokus */
+}
+
+/* Tombol kirim */
+.bp-widget-send-button {
+    background-color: #4A90E2; /* Warna biru untuk tombol kirim */
+    color: #ffffff;
+    border: none;
+    border-radius: 25px; /* Sudut membulat untuk tombol */
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.bp-widget-send-button:hover {
+    background-color: #3A7BD5; /* Warna biru lebih gelap saat hover */
+    transform: translateY(-1px); /* Efek sedikit terangkat saat hover */
+}
+
+.bp-widget-send-button:active {
+    transform: translateY(0); /* Kembali ke posisi semula saat diklik */
+}
+
+/* Gaya untuk tombol pilihan (jika ada) */
+.bp-widget-quick-reply-button {
+    background-color: #e0e0e0;
+    color: #333333;
+    border: 1px solid #cccccc;
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.bp-widget-quick-reply-button:hover {
+    background-color: #d0d0d0;
+    border-color: #a0a0a0;
+}
+
+/* Responsif dasar untuk ukuran layar kecil */
+@media (max-width: 600px) {
+    .bp-widget-web {
+        width: 100%;
+        height: 100vh; /* Mengisi seluruh tinggi viewport pada perangkat seluler */
+        border-radius: 0; /* Tanpa sudut membulat di seluler */
     }
-    </script>
 
-</head>
-<body class="bg-slate-50 text-slate-700">
+    .bp-widget-header {
+        border-radius: 0;
+    }
 
-    <!-- Header -->
-    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300">
-        <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-slate-800">Agung Saputra</a>
-            <nav class="hidden md:flex space-x-8 items-center">
-                <a href="#about" class="hover:text-blue-600 transition-colors">Tentang</a>
-                <a href="#achievements" class="hover:text-blue-600 transition-colors">Pencapaian</a>
-                <a href="#experience" class="hover:text-blue-600 transition-colors">Pengalaman</a>
-                <a href="#skills" class="hover:text-blue-600 transition-colors">Keahlian</a>
-                <a href="#portfolio" class="hover:text-blue-600 transition-colors">Portofolio</a>
-                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors shadow">Kontak Saya</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-2xl text-slate-800">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white">
-            <a href="#about" class="block py-2 px-6 text-sm hover:bg-slate-100">Tentang</a>
-            <a href="#achievements" class="block py-2 px-6 text-sm hover:bg-slate-100">Pencapaian</a>
-            <a href="#experience" class="block py-2 px-6 text-sm hover:bg-slate-100">Pengalaman</a>
-            <a href="#skills" class="block py-2 px-6 text-sm hover:bg-slate-100">Keahlian</a>
-            <a href="#portfolio" class="block py-2 px-6 text-sm hover:bg-slate-100">Portofolio</a>
-            <a href="#contact" class="block py-2 px-6 text-sm hover:bg-slate-100">Kontak Saya</a>
-        </div>
-    </header>
+    .bp-widget-chat-container {
+        padding: 10px;
+    }
 
-    <main>
-        <!-- 1. Hero Section -->
-        <section id="home" class="relative bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-700 text-white pt-32 pb-40 overflow-hidden">
-            <div class="container mx-auto px-4 sm:px-6 text-center relative z-10">
-                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-                    <div class="w-full md:w-2/3 text-center md:text-left">
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">Agung Saputra</h1>
-                        <p class="text-lg sm:text-xl md:text-2xl font-medium mt-3 text-blue-200">HR Strategist & Project Planner | Human Capital Empowerment Expert</p>
-                        <p class="mt-6 max-w-2xl mx-auto md:mx-0 text-base sm:text-lg text-blue-100">
-                            Berpengalaman mengelola 4.000+ karyawan & memimpin proyek multi-miliar dengan ketepatan waktu & efisiensi biaya.
-                        </p>
-                        <div class="mt-8 flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-4">
-                            <a href="https://drive.google.com/file/d/1Q6Qg3b0jHQ7YyEwJMTtBgH_r6ZY7acB9/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="bg-white text-blue-700 font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-slate-100 transform hover:scale-105 transition-all duration-300">
-                                <i class="fas fa-download mr-2"></i> Unduh CV Lengkap
-                            </a>
-                            <a href="#contact" class="bg-blue-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-400 transform hover:scale-105 transition-all duration-300">
-                                <i class="fas fa-paper-plane mr-2"></i> Kontak Saya Sekarang
-                            </a>
-                            <a href="#portfolio" class="border-2 border-white text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-white/20 transform hover:scale-105 transition-all duration-300">
-                                <i class="fas fa-briefcase mr-2"></i> Lihat Portofolio
-                            </a>
-                        </div>
-                    </div>
-                    <div class="w-1/2 md:w-1/3 mt-10 md:mt-0">
-                        <img src="Image/agung-saputra-profile.png" alt="Foto profil Agung Saputra" class="rounded-full border-8 border-white/50 shadow-2xl mx-auto w-48 h-48 sm:w-64 sm:h-64 md:w-full md:h-auto object-cover">
-                    </div>
-                </div>
-                
-                <div id="stats" class="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                    <div class="text-center"><p class="text-4xl font-bold" id="stats-experience">0+</p><p class="text-blue-200 mt-1">Tahun Pengalaman</p></div>
-                    <div class="text-center"><p class="text-4xl font-bold" id="stats-industries">0+</p><p class="text-blue-200 mt-1">Industri Berbeda</p></div>
-                    <div class="text-center"><p class="text-4xl font-bold" id="stats-recruitment">0%</p><p class="text-blue-200 mt-1">Rekrutmen Lebih Cepat</p></div>
-                </div>
-            </div>
-            <div class="hero-wave">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path></svg>
-            </div>
-        </section>
+    .bp-widget-message.user,
+    .bp-widget-message.bot {
+        max-width: 90%;
+    }
 
-        <!-- 2. About Section -->
-        <section id="about" class="py-20 bg-slate-50">
-            <div class="container mx-auto px-4 sm:px-6">
-                <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-slate-800">Tentang Agung</h2><div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div></div>
-                <div class="flex flex-col md:flex-row items-center gap-10 md:gap-12">
-                    <div class="md:w-2/3" data-aos="fade-right"><p class="text-base sm:text-lg leading-relaxed mb-4">Nama saya Agung Saputra. Bagi saya, Human Resource bukan sekadar administrasi—ini tentang memimpin orang-orang hebat agar bisa memberikan dampak maksimal, sambil memastikan setiap proses tetap terukur, efisien, dan patuh regulasi.</p><p class="text-base sm:text-lg leading-relaxed mb-4">Dengan latar belakang sebagai HR Operation Manager, Business Officer, dan Sr. Planner, saya terbiasa menangani SDM lintas proyek, perencanaan anggaran, negosiasi vendor, hingga penanganan hubungan industrial secara strategis.</p><p class="text-base sm:text-lg leading-relaxed font-semibold text-slate-900">Prinsip saya: setiap orang punya potensi. Tugas saya adalah membuat potensi itu tumbuh melalui ekosistem kerja yang sehat, transparan, dan terkelola dengan baik.</p></div>
-                    <div class="md:w-1/3 w-full bg-white p-6 rounded-lg shadow-lg" data-aos="fade-left"><h3 class="font-bold text-xl mb-4 text-slate-900">Info Ringkas</h3><ul class="space-y-3 text-slate-600 text-sm sm:text-base"><li><i class="fas fa-map-marker-alt w-5 text-blue-600"></i> <strong>Domisili:</strong> Jakarta Barat</li><li><i class="fas fa-birthday-cake w-5 text-blue-600"></i> <strong>Lahir:</strong> 1 Juli 1999</li><li><i class="fas fa-briefcase w-5 text-blue-600"></i> <strong>Pengalaman:</strong> 5+ Tahun</li><li><i class="fas fa-star w-5 text-blue-600"></i> <strong>Spesialisasi:</strong> HR Management, Payroll & Compliance, Project Management, Industrial Relations</li></ul><h3 class="font-bold text-xl mt-6 mb-3 text-slate-900">Nilai-nilai</h3><div class="flex flex-wrap gap-2"><span class="bg-blue-100 text-blue-800 text-xs sm:text-sm font-medium px-3 py-1 rounded-full">#Integritas</span><span class="bg-blue-100 text-blue-800 text-xs sm:text-sm font-medium px-3 py-1 rounded-full">#Konsistensi</span><span class="bg-blue-100 text-blue-800 text-xs sm:text-sm font-medium px-3 py-1 rounded-full">#Transparansi</span><span class="bg-blue-100 text-blue-800 text-xs sm:text-sm font-medium px-3 py-1 rounded-full">#PeopleFirst</span></div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. Achievements Section -->
-        <section id="achievements" class="py-20 bg-white">
-            <div class="container mx-auto px-4 sm:px-6">
-                <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-slate-800">Pencapaian Utama</h2><p class="mt-3 text-base sm:text-lg text-slate-600">Dampak nyata yang berhasil saya ciptakan.</p><div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div></div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="100"><div class="text-4xl text-blue-600 mb-4"><i class="fas fa-rocket"></i></div><h3 class="text-xl font-bold mb-2 text-slate-900">Rekrutmen Lebih Cepat</h3><p class="text-sm sm:text-base">Berhasil memperkenalkan dan mengimplementasikan HRIS berbasis <span class="highlight">SAP SuccessFactors</span> & <span class="highlight">Talenta</span>. Efisiensi waktu rekrutmen meningkat 20%.</p><div class="w-full bg-gray-200 rounded-full h-2.5 mt-4"><div class="bg-blue-600 h-2.5 rounded-full" style="width: 100%"></div></div></div>
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="200"><div class="text-4xl text-blue-600 mb-4"><i class="fas fa-calendar-check"></i></div><h3 class="text-xl font-bold mb-2 text-slate-900">Proyek PIK 2 Tuntas Tepat Waktu</h3><p class="text-sm sm:text-base">Mengoptimalkan anggaran proyek hingga hemat 10% dari estimasi semula. Proyek <span class="highlight">PIK 2</span> selesai 100% on-schedule.</p><div class="w-full bg-gray-200 rounded-full h-2.5 mt-4"><div class="bg-blue-600 h-2.5 rounded-full" style="width: 100%"></div></div></div>
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="300"><div class="text-4xl text-blue-600 mb-4"><i class="fas fa-file-invoice-dollar"></i></div><h3 class="text-xl font-bold mb-2 text-slate-900">Audit Keuangan Bersih</h3><p class="text-sm sm:text-base">Mengelola laporan keuangan dengan hasil <span class="highlight">Audit Bersih</span>. Meningkatkan kepercayaan stakeholder & investor.</p><div class="w-full bg-gray-200 rounded-full h-2.5 mt-4"><div class="bg-blue-600 h-2.5 rounded-full" style="width: 100%"></div></div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. Experience Section -->
-        <section id="experience" class="py-20 bg-slate-50">
-            <div class="container mx-auto px-4 sm:px-6">
-                <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-slate-800">Pengalaman Profesional</h2><div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div></div>
-                <div class="relative timeline">
-                    <div class="mb-8 flex justify-between md:items-center w-full timeline-item-left" data-aos="fade-right"><div class="hidden md:block w-5/12"></div><div class="z-10 flex items-center bg-blue-600 shadow-xl w-10 h-10 rounded-full timeline-icon"><i class="fas fa-truck-moving text-white mx-auto"></i></div><div class="bg-white rounded-lg shadow-lg w-full md:w-5/12 p-6 timeline-content"><p class="text-sm text-slate-500 mb-1">Mei 2024 - Sept 2024</p><h3 class="font-bold text-lg text-slate-900">Sr. Planner</h3><p class="font-semibold text-slate-700">PT. Alam Sampurna Makmur (Sampurna Group)</p><ul class="mt-3 list-disc list-inside text-sm space-y-1"><li>Merancang & mengimplementasikan infrastruktur proyek di kawasan PIK 2 Kohod.</li><li>Mengelola 427 armada transportasi logistik.</li><li>Membuat layout area kerja, jadwal pengiriman, dan pengelolaan fasilitas proyek.</li></ul></div></div>
-                    <div class="mb-8 flex justify-between md:flex-row-reverse md:items-center w-full timeline-item-right" data-aos="fade-left"><div class="hidden md:block w-5/12"></div><div class="z-10 flex items-center bg-blue-600 shadow-xl w-10 h-10 rounded-full timeline-icon"><i class="fas fa-university text-white mx-auto"></i></div><div class="bg-white rounded-lg shadow-lg w-full md:w-5/12 p-6 timeline-content"><p class="text-sm text-slate-500 mb-1">Sep 2022 - Mei 2024</p><h3 class="font-bold text-lg text-slate-900">HR Operation Manager</h3><p class="font-semibold text-slate-700">PT. Cipta Karya Prestasi (Bank BSI Group)</p><ul class="mt-3 list-disc list-inside text-sm space-y-1"><li>Rekrutmen & onboarding 2.300+ karyawan eksternal.</li><li>Mengelola payroll, absensi, kontrak, dan audit internal HR.</li><li>Menangani hubungan industrial & kepatuhan hukum.</li></ul><a href="https://wa.me/6281234567890?text=Halo%20Pak%20Farly,%20saya%20mendapat%20kontak%20Anda%20dari%20portofolio%20Agung%20Saputra." target="_blank" class="text-blue-600 text-sm mt-3 inline-block hover:underline">Kontak Referensi <i class="fas fa-external-link-alt ml-1"></i></a></div></div>
-                    <div class="mb-8 flex justify-between md:items-center w-full timeline-item-left" data-aos="fade-right"><div class="hidden md:block w-5/12"></div><div class="z-10 flex items-center bg-blue-600 shadow-xl w-10 h-10 rounded-full timeline-icon"><i class="fas fa-users text-white mx-auto"></i></div><div class="bg-white rounded-lg shadow-lg w-full md:w-5/12 p-6 timeline-content"><p class="text-sm text-slate-500 mb-1">Apr 2022 - Sep 2022</p><h3 class="font-bold text-lg text-slate-900">HR Operation</h3><p class="font-semibold text-slate-700">PT. Bangun Sumberdaya Mandiri</p><ul class="mt-3 list-disc list-inside text-sm space-y-1"><li>Rekrutmen outsourcing & penempatan tenaga kerja.</li><li>Hubungan klien, manajemen kontrak.</li><li>Kepatuhan regulasi tenaga kerja.</li></ul></div></div>
-                    <div class="mb-8 flex justify-between md:flex-row-reverse md:items-center w-full timeline-item-right" data-aos="fade-left"><div class="hidden md:block w-5/12"></div><div class="z-10 flex items-center bg-blue-600 shadow-xl w-10 h-10 rounded-full timeline-icon"><i class="fas fa-handshake text-white mx-auto"></i></div><div class="bg-white rounded-lg shadow-lg w-full md:w-5/12 p-6 timeline-content"><p class="text-sm text-slate-500 mb-1">Sep 2021 - Mar 2022</p><h3 class="font-bold text-lg text-slate-900">Business Officer</h3><p class="font-semibold text-slate-700">PT. Usaha Gunabhakti Mandiri (Bank Mandiri Group)</p><ul class="mt-3 list-disc list-inside text-sm space-y-1"><li>Penempatan tenaga kerja outsourcing.</li><li>Memantau kinerja tenaga kerja & negosiasi kontrak.</li><li>Penyusunan laporan kinerja & penanganan konflik.</li></ul></div></div>
-                    <!-- Pengalaman Baru Ditambahkan -->
-                    <div class="mb-8 flex justify-between md:items-center w-full timeline-item-left" data-aos="fade-right"><div class="hidden md:block w-5/12"></div><div class="z-10 flex items-center bg-blue-600 shadow-xl w-10 h-10 rounded-full timeline-icon"><i class="fas fa-file-alt text-white mx-auto"></i></div><div class="bg-white rounded-lg shadow-lg w-full md:w-5/12 p-6 timeline-content"><p class="text-sm text-slate-500 mb-1">Mar 2018 - Agu 2021</p><h3 class="font-bold text-lg text-slate-900">Human Resource Staff</h3><p class="font-semibold text-slate-700">PT. Karya Era Bersama</p><ul class="mt-3 list-disc list-inside text-sm space-y-1"><li>Menyusun dan memperbarui dokumen kepegawaian.</li><li>Mengurus kepesertaan BPJS Kesehatan & Ketenagakerjaan.</li><li>Membuat laporan rekap kepegawaian rutin untuk kebutuhan audit.</li></ul></div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. Skills Section -->
-        <section id="skills" class="py-20 bg-white">
-            <div class="container mx-auto px-4 sm:px-6">
-                <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-slate-800">Keahlian & Tools</h2><div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div></div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    <div class="bg-slate-50 p-6 rounded-lg" data-aos="fade-up"><h3 class="font-bold text-xl mb-3 flex items-center gap-3"><i class="fas fa-cogs text-blue-600"></i> HR Tools</h3><p class="text-slate-600 text-sm sm:text-base">SAP/ERP HCM, SAP SuccessFactors, Oracle, Workday, Sunfish, HRM Orange, Talenta.</p></div>
-                    <div class="bg-slate-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100"><h3 class="font-bold text-xl mb-3 flex items-center gap-3"><i class="fas fa-file-excel text-green-600"></i> Office & Workspace</h3><p class="text-slate-600 text-sm sm:text-base">Advanced Word, Excel (VLOOKUP, INDEX, PIVOT), PowerPoint, Access, Outlook, Google Workspace.</p></div>
-                    <div class="bg-slate-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200"><h3 class="font-bold text-xl mb-3 flex items-center gap-3"><i class="fas fa-brain text-purple-600"></i> Analytical & Psychotest</h3><p class="text-slate-600 text-sm sm:text-base">DISC, Army Alpha, Grafologi.</p></div>
-                    <div class="bg-slate-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300"><h3 class="font-bold text-xl mb-3 flex items-center gap-3"><i class="fas fa-balance-scale text-red-600"></i> Legal & Industrial</h3><p class="text-slate-600 text-sm sm:text-base">CLA, NDA, PP/PKB, Expatriate Formalities, Hubungan Serikat Pekerja, ORMAS.</p></div>
-                    <div class="bg-slate-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="400"><h3 class="font-bold text-xl mb-3 flex items-center gap-3"><i class="fas fa-comments text-yellow-600"></i> Soft Skills</h3><p class="text-slate-600 text-sm sm:text-base">Leadership, Negotiation, Problem Solving, Time Management, Communication.</p></div>
-                    <div class="bg-slate-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="500"><h3 class="font-bold text-xl mb-3 flex items-center gap-3"><i class="fas fa-print text-gray-600"></i> Office Tools</h3><p class="text-slate-600 text-sm sm:text-base">Fax, Scanner, Jam paper, Printer, Internet/Intranet, APD/APAR.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. Portfolio Section -->
-        <section id="portfolio" class="py-20 bg-slate-50 overflow-hidden">
-            <div class="container mx-auto px-4 sm:px-6">
-                <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-slate-800">Project & Portofolio</h2><p class="mt-3 text-base sm:text-lg text-slate-600">Berikut beberapa dokumentasi proyek dan sistem yang pernah saya implementasikan.</p><div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div></div>
-                <div class="swiper-container portfolio-swiper" data-aos="fade-up">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden"><img src="Image/portfolio-layout-pik2.png" alt="Layout area kerja pembangunan PIK 2" class="w-full h-56 sm:h-64 object-cover"><div class="p-6"><h3 class="font-bold text-lg">Layout Area Kerja PIK 2</h3><p class="text-sm text-slate-600 mt-2">Perancangan strategis untuk efisiensi alur kerja dan logistik di lapangan.</p></div></div></div>
-                        <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden"><img src="Image/portfolio-dashboard-hris.jpg" alt="Dashboard HRIS monitoring rekrutmen" class="w-full h-56 sm:h-64 object-cover"><div class="p-6"><h3 class="font-bold text-lg">Dashboard HRIS Monitoring</h3><p class="text-sm text-slate-600 mt-2">Visualisasi data rekrutmen real-time menggunakan SAP & Talenta.</p></div></div></div>
-                        <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden"><img src="Image/portfolio-dokumentasi-training.jpg" alt="Dokumentasi training HR Operation" class="w-full h-56 sm:h-64 object-cover"><div class="p-6"><h3 class="font-bold text-lg">Dokumentasi Training HR</h3><p class="text-sm text-slate-600 mt-2">Materi dari sesi training untuk peningkatan kapabilitas tim HR.</p></div></div></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next text-blue-600"></div>
-                    <div class="swiper-button-prev text-blue-600"></div>
-                </div>
-                 <p class="text-center mt-8 text-slate-600 italic" data-aos="fade-up">Saya percaya detail kecil memengaruhi hasil besar.</p>
-            </div>
-        </section>
-
-        <!-- 7. Testimonials Section -->
-        <section id="testimonials" class="py-20 bg-white overflow-hidden">
-            <div class="container mx-auto px-4 sm:px-6">
-                <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-slate-800">Apa Kata Mereka</h2><div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div></div>
-                <div class="swiper-container testimonials-swiper" data-aos="fade-up">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><div class="bg-slate-50 p-8 rounded-lg text-center max-w-2xl mx-auto"><i class="fas fa-quote-left text-3xl text-blue-300"></i><p class="text-base sm:text-lg italic my-4">"Agung adalah profesional yang konsisten dan teliti. Proyek PIK 2 yang saya kelola bersama Agung berjalan tepat waktu dan lebih efisien."</p><p class="font-bold text-slate-900 mt-4">Hedy Roseno</p><p class="text-sm text-slate-500">GM Operation, PT. Alam Sampurna Makmur</p></div></div>
-                        <div class="swiper-slide"><div class="bg-slate-50 p-8 rounded-lg text-center max-w-2xl mx-auto"><i class="fas fa-quote-left text-3xl text-blue-300"></i><p class="text-base sm:text-lg italic my-4">"Pengalaman Agung di dunia HR membantu kami melakukan transformasi digital yang mempercepat proses rekrutmen."</p><p class="font-bold text-slate-900 mt-4">Farly Hafazsyah Fakih</p><p class="text-sm text-slate-500">Direktur, PT. Cipta Karya Prestasi</p></div></div>
-                    </div>
-                    <div class="swiper-pagination-testimonials mt-8 relative"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. Contact Section -->
-        <section id="contact" class="py-20 bg-slate-50">
-            <div class="container mx-auto px-4 sm:px-6">
-                <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-slate-800">Siap Membantu Perusahaan Anda Bertumbuh</h2><p class="mt-3 text-base sm:text-lg text-slate-600">Ingin berdiskusi lebih jauh? Hubungi saya kapan saja.</p><div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div></div>
-                <div class="max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-lg shadow-lg" data-aos="fade-up">
-                    <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4 text-slate-900">Hubungi Langsung</h3>
-                            <div class="flex items-center gap-4 mb-4"><i class="fas fa-envelope text-2xl text-blue-600"></i><div><p class="font-semibold">Email</p><a href="mailto:agungsaputra.me@gmail.com" class="text-slate-600 hover:text-blue-600 break-all">agungsaputra.me@gmail.com</a></div></div>
-                            <div class="flex items-center gap-4 mb-6"><i class="fab fa-whatsapp text-2xl text-green-500"></i><div><p class="font-semibold">WhatsApp</p><a href="https://wa.me/6287862917671" target="_blank" class="text-slate-600 hover:text-blue-600">0878-6291-7671</a></div></div>
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <a href="https://wa.me/6287862917671" target="_blank" class="bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-colors flex-1 text-center"><i class="fab fa-whatsapp mr-2"></i> WhatsApp</a>
-                                <a href="https://drive.google.com/file/d/1Q6Qg3b0jHQ7YyEwJMTtBgH_r6ZY7acB9/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex-1 text-center"><i class="fas fa-download mr-2"></i> Unduh CV</a>
-                            </div>
-                        </div>
-                        <form id="contact-form">
-                            <div class="mb-4"><label for="contact-name" class="block text-sm font-medium text-slate-700">Nama</label><input type="text" id="contact-name" name="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></div>
-                            <div class="mb-4"><label for="contact-email" class="block text-sm font-medium text-slate-700">Email</label><input type="email" id="contact-email" name="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></div>
-                            <div class="mb-4"><label for="contact-message" class="block text-sm font-medium text-slate-700">Pesan</label><textarea id="contact-message" name="message" rows="4" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea></div>
-                            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">Kirim Pesan via WhatsApp</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 9. Footer -->
-    <footer class="bg-slate-800 text-slate-300 py-8">
-        <div class="container mx-auto px-4 sm:px-6 text-center">
-            <div class="flex justify-center gap-6 mb-4">
-                <a href="https://id.linkedin.com/in/agung-saputra-bb983b214" target="_blank" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-linkedin"></i></a>
-                <a href="https://wa.me/6287862917671" target="_blank" class="text-2xl hover:text-green-400 transition-colors"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:agungsaputra.me@gmail.com" class="text-2xl hover:text-red-400 transition-colors"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p>&copy; <span id="year"></span> Agung Saputra | All rights reserved.</p>
-            <p class="text-sm text-slate-500 mt-2">Designed with <i class="fas fa-heart text-red-500"></i> by Agung Saputra</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Custom JavaScript -->
-    <script>
-        // Initialize AOS (Animate on Scroll)
-        AOS.init({ duration: 800, once: true });
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('#mobile-menu a, nav a, a[href^="#"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if(link.getAttribute('href').startsWith('#')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        // Counter Up Animation
-        function animateValue(obj, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start) + (obj.id.includes('recruitment') ? '%' : '+');
-                if (progress < 1) { window.requestAnimationFrame(step); }
-            };
-            window.requestAnimationFrame(step);
-        }
-
-        // Jalankan animasi counter hero section saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', (event) => {
-            animateValue(document.getElementById('stats-experience'), 0, 5, 1500);
-            animateValue(document.getElementById('stats-industries'), 0, 3, 1500);
-            animateValue(document.getElementById('stats-recruitment'), 0, 20, 1500);
-        });
-
-        // Swiper JS
-        new Swiper('.portfolio-swiper', { loop: true, slidesPerView: 1, spaceBetween: 30, autoplay: { delay: 4000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', clickable: true }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } });
-        new Swiper('.testimonials-swiper', { loop: true, slidesPerView: 1, spaceBetween: 30, autoplay: { delay: 5000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination-testimonials', clickable: true } });
-
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // ** FUNGSI BARU: Form Kontak ke WhatsApp **
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah form mengirim data secara default
-
-            // Ambil data dari form
-            const name = document.getElementById('contact-name').value;
-            const email = document.getElementById('contact-email').value;
-            const message = document.getElementById('contact-message').value;
-
-            // Nomor WhatsApp Anda
-            const astraWhatsappNumber = '6287862917671';
-
-            // Buat template pesan
-            const whatsappMessage = `Halo Agung,
-
-Nama: ${name}
-Email: ${email}
-
-Pesan:
-${message}
-`;
-
-            // Buat URL WhatsApp
-            const whatsappURL = `https://wa.me/${astraWhatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-            // Buka WhatsApp di tab baru
-            window.open(whatsappURL, '_blank');
-        });
-    </script>
-</body>
-</html>
+    .bp-widget-input-container {
+        padding: 10px;
+    }
+}
